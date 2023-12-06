@@ -14,7 +14,17 @@
   notify:
       - Run api
 
+- name: Install serve
+  command: "cd {{FRONTEND_FOLDER}} && npm install -g serve"
+  notify:
+      - Install serve
+
+- name: Build frontend
+  command: "cd {{FRONTEND_FOLDER}} && npm run build"
+  notify:
+      - Build frontend
+
 - name: Start frontend
-  command: "cd {{FRONTEND_FOLDER}} && npm start"
+  command: "cd {{FRONTEND_FOLDER}} && serve -s build"
   notify:
       - Run client
