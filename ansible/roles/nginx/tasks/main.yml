@@ -9,3 +9,10 @@
       dest: /etc/nginx/sites-enabled/site.conf
       owner: root
       mode: 0755
+  notify:
+    - restart nginx
+
+- name: Ensure nginx is running
+  service:
+      name: nginx
+      state: started

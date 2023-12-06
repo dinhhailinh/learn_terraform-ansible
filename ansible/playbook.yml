@@ -8,5 +8,6 @@
   roles:
       - nodejs
       - git
+      - project-build
       - nginx
-      - project
+      - project-start

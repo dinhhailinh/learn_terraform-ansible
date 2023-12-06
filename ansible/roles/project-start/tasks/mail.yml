@@ -1,0 +1,8 @@
+---
+- name: Run api
+  become: yes
+  shell: cd {{API_FOLDER}} && npm start
+
+- name: Start frontend
+  become: yes
+  shell: cd {{FRONTEND_FOLDER}} && serve -s build

@@ -18,7 +18,7 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-*"]
   }
 
   filter {
@@ -31,7 +31,7 @@ data "aws_ami" "ubuntu" {
 
 resource "aws_instance" "my-first-instance" {
   ami                    = data.aws_ami.ubuntu.id
-  instance_type          = "t4g.medium"
+  instance_type          = "t3.medium"
   vpc_security_group_ids = [aws_security_group.sg_web.id]
 
   key_name = "learn_devops"
