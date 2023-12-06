@@ -1,0 +1,2 @@
+[server_ec2]
+web_server ansible_ssh_user=ubuntu ansible_host=HOST ansible_ssh_private_key_file=KEY_FILE_PATH

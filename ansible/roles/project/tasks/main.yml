@@ -1,0 +1,20 @@
+---
+- name: Install dependence api
+  command: "cd {{API_FOLDER}} && npm install"
+  notify:
+      - Install dependence api
+
+- name: Install dependence frontend
+  command: "cd {{FRONTEND_FOLDER}} && npm install"
+  notify:
+      - Install dependence frontend
+
+- name: Run api
+  command: "cd {{API_FOLDER}} && npm start"
+  notify:
+      - Run api
+
+- name: Start frontend
+  command: "cd {{FRONTEND_FOLDER}} && npm start"
+  notify:
+      - Run client

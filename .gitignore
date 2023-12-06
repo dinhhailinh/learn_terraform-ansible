@@ -1,3 +1,9 @@
+.env
+.vscode
+
+# Ignore for ansible
+*.retry
+
 # Local .terraform directories
 **/.terraform/*
 

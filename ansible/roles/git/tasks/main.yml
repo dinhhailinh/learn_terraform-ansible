@@ -1,0 +1,27 @@
+- name: Ensure Git is installed
+  apt:
+      name: git
+      state: latest
+
+- name: Check that the id_rsa exists
+  stat:
+      path: /home/ubuntu/.ssh/id_rsa
+  register: key_check
+
+- name: Generate an OpenSSH keypair with the default values (4096 bits, rsa)
+  community.crypto.openssh_keypair:
+      path: /home/ubuntu/.ssh/id_rsa
+  when: not key_check.stat.exists
+
+- name: Add SSH key to SSH agent
+  ansible.builtin.shell: |
+      eval $(ssh-agent)
+      ssh-add /home/ubuntu/.ssh/id_rsa
+
+- name: Clone the Git repository
+  git:
+      repo: https://{{ username }}:{{ password }}@{{repo}}
+      dest: "{{dest}}"
+      version: "{{version}}"
+      accept_hostkey: yes
+      key_file: /home/ubuntu/.ssh/id_rsa

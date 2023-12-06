@@ -1,0 +1,11 @@
+- name: Install ngnix
+  apt:
+      name: nginx
+      state: present
+
+- name: nginx config
+  template:
+      src: templates/nginx.conf.j2
+      dest: /etc/nginx/sites-enabled/site.conf
+      owner: root
+      mode: 0755

@@ -1,0 +1,12 @@
+---
+- name: Connect to Ubuntu EC2 instance
+  hosts: web_server
+  become: yes
+  gather_facts: true
+  any_errors_fatal: true
+
+  roles:
+      - nodejs
+      - git
+      - nginx
+      - project

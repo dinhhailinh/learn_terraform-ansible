@@ -1,0 +1,19 @@
+server {
+    listen 80;
+    server_name {{ SERVER_NAME }};  # Replace with your actual domain
+
+    root {{ ROOT }};
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    gzip on;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+
+    location ~* \.(jpg|jpeg|gif|png|ico|css|js|woff|woff2|ttf|otf|svg|eot)$ {
+        access_log off;
+        expires max;
+    }
+}
