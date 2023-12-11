@@ -1,5 +1,3 @@
-username: USERNAME
-password: PASSWORD
 repo: REPO
 dest: DEST
-version: BRANCH
+version: VERSION

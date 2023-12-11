@@ -1,5 +1,5 @@
 ---
-- name: Connect to Ubuntu EC2 instance
+- name: Setup
   hosts: web_server
   become: yes
   gather_facts: true
@@ -7,7 +7,5 @@
 
   roles:
       - nodejs
-      - git
-      - project-build
+      - ssh_key
       - nginx
-      - project-start

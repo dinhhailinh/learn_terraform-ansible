@@ -1,0 +1,11 @@
+---
+- name: Deploy
+  hosts: web_server
+  become: yes
+  gather_facts: true
+  any_errors_fatal: true
+
+  roles:
+      - git
+      - project-build
+      - project-start

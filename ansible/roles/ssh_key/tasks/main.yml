@@ -1,0 +1,10 @@
+---
+- name: Check that the id_rsa exists
+  stat:
+      path: /home/ubuntu/.ssh/id_rsa
+  register: key_check
+
+- name: Generate an OpenSSH keypair with the default values (4096 bits, rsa)
+  community.crypto.openssh_keypair:
+      path: /home/ubuntu/.ssh/id_rsa
+  when: not key_check.stat.exists

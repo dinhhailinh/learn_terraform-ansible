@@ -1,14 +1,12 @@
 ---
 - name: Install dependence api
   become: yes
-  shell: |
-    cd {{API_FOLDER}} && 
-    npm install
+  shell:
+    chdir: "{{API_FOLDER}}"
+    cmd: npm install
 
 - name: Install dependence frontend
   become: yes
-  shell: |
-    cd {{FRONTEND_FOLDER}} && 
-    npm install &&
-    npm install -g serve &&
-    npm run build
+  shell:
+    chdir: "{{FRONTEND_FOLDER}}" 
+    cmd: npm install && npm install -g serve && npm run build

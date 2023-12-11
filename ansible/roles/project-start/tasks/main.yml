@@ -1,0 +1,6 @@
+---
+- name: Run api
+  become: yes
+  shell:
+    chdir: "{{API_FOLDER}}"
+    cmd: npm run start
