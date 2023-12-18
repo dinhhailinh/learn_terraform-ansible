@@ -10,7 +10,7 @@
       owner: root
       mode: 0755
 
-- name: nginx config client
+- name: Nginx config client
   template:
       src: templates/nginx.conf.j2
       dest: /etc/nginx/sites-enabled/site.conf
